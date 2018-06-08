@@ -4,6 +4,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MaterialModule } from './material/material.module';
 import { RoutingModule } from './routing.module';
 import { SharedModule } from './shared/shared.module';
+import { ThreeExamplesModule } from './three/three-examples/three-examples.module';
+
 /** Components */
 import { AppComponent } from './app.component';
 import {
@@ -13,6 +15,7 @@ import {
   LogoutComponent,
   AccountComponent,
   AdminComponent,
+  GameComponent,
   NotFoundComponent
 } from './pages';
 /** Services */
@@ -28,6 +31,7 @@ const PAGES = [
   LogoutComponent,
   AccountComponent,
   AdminComponent,
+  GameComponent,
   NotFoundComponent
 ];
 
@@ -40,7 +44,8 @@ const PAGES = [
     RoutingModule,
     SharedModule,
     BrowserAnimationsModule,
-    MaterialModule
+    MaterialModule,
+    ThreeExamplesModule
   ],
   providers: [
     AuthService,

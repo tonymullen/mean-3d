@@ -15,7 +15,10 @@
         </div>
       </div>
       <h4 *ngIf="auth.isAdmin" class="user-role" >User is Admin</h4>
+      <app-game *ngIf="!auth.isAdmin && auth.loggedIn"></app-game>
+      <!--
       <h4 *ngIf="!auth.isAdmin && auth.loggedIn" class="user-role" >User is NOT Admin</h4>
+    -->
     </div>
   </div>
 </div>

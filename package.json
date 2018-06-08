@@ -1,9 +1,9 @@
 {
-  "name": "MEAN-stack-authentication",
+  "name": "MEAN-stack-interactive-3D",
   "version": "1.0.0",
   "license": "MIT",
   "author": "Leonardo Maglio  @leota",
-  "description": "MEAN stack authentication boilerplate with Angular 5 and Angular Material.",
+  "description": "MEAN stack boilerplate with authentication, 3D, and socket interaction.",
   "angular-cli": {},
   "engines": {
     "node": "6.11.4",
@@ -14,8 +14,8 @@
     "build": "ng build",
     "start": "node dist/server/app.js",
     "predev": "tsc -p server",
-    "dev": "concurrently \"mongod\" \"ng serve -pc proxy.conf.json --open\" \"tsc -w -p server\" \"nodemon dist/server/app.js\"",
-    "prod": "concurrently \"mongod\" \"ng build -aot -prod && tsc -p server && node dist/server/app.js\"",
+    "dev": "concurrently \"ng serve -pc proxy.conf.json --open\" \"tsc -w -p server\" \"nodemon dist/server/app.js\"",
+    "prod": "concurrently \"ng build -aot -prod && tsc -p server && node dist/server/app.js\"",
     "test": "ng test",
     "testbe": "tsc -p server && mocha dist/server/test --exit",
     "lint": "ng lint",
@@ -50,6 +50,7 @@
     "morgan": "^1.9.0",
     "rxjs": "^5.5.2",
     "tether": "1.4.0",
+    "three": "^0.92.0",
     "zone.js": "^0.8.18"
   },
   "devDependencies": {
@@ -60,6 +61,7 @@
     "@types/jasmine": "~2.5.54",
     "@types/jasminewd2": "~2.0.3",
     "@types/node": "~6.0.92",
+    "@types/three": "^0.92.3",
     "chai": "^4.1.2",
     "chai-http": "^3.0.0",
     "codelyzer": "~3.2.2",
@@ -73,8 +75,8 @@
     "karma-jasmine": "~1.1.0",
     "karma-jasmine-html-reporter": "^0.2.2",
     "mocha": "^4.0.1",
-    "nodemon": "^1.12.1",
-    "protractor": "~5.1.2",
+    "nodemon": "^1.17.5",
+    "protractor": "^5.3.2",
     "ts-node": "~3.2.0",
     "tslint": "~5.7.0",
     "typescript": "~2.4.2"
