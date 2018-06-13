@@ -12,6 +12,12 @@ import { AxesHelperDirective } from './objects/helpers/axes-helper.directive';
 import { GridHelperDirective } from './objects/helpers/grid-helper.directive';
 import { ObjectLoaderDirective } from './objects/loaders/object-loader.directive';
 import { PointLightDirective } from './objects/light/point-light.directive';
+import { BoxMeshDirective } from './objects/mesh/box-mesh.directive';
+import { SphereMeshDirective } from './objects/mesh/sphere-mesh.directive';
+import { ExtrudeMeshDirective } from './objects/mesh/extrude-mesh.directive';
+import { OMeshDirective } from './objects/mesh/o-mesh.directive';
+import { XMeshDirective } from './objects/mesh/x-mesh.directive';
+import { CellMeshDirective } from './objects/mesh/cell-mesh.directive';
 
 // TODO: Ideally move all to three-wrapper library. But can't move js/EnableThreeExamples.js to library :(
 @NgModule({
@@ -30,7 +36,13 @@ import { PointLightDirective } from './objects/light/point-light.directive';
     AxesHelperDirective,
     GridHelperDirective,
     ObjectLoaderDirective,
-    PointLightDirective
+    PointLightDirective,
+    BoxMeshDirective,
+    SphereMeshDirective,
+    ExtrudeMeshDirective,
+    OMeshDirective,
+    XMeshDirective,
+    CellMeshDirective
   ],
   exports: [
     OrbitControlsDirective,
@@ -44,7 +56,13 @@ import { PointLightDirective } from './objects/light/point-light.directive';
     AxesHelperDirective,
     GridHelperDirective,
     ObjectLoaderDirective,
-    PointLightDirective
+    PointLightDirective,
+    BoxMeshDirective,
+    SphereMeshDirective,
+    ExtrudeMeshDirective,
+    OMeshDirective,
+    XMeshDirective,
+    CellMeshDirective
   ]
 })
 export class ThreeExamplesModule { }

@@ -6,6 +6,10 @@ import { Component } from '@angular/core';
   styleUrls: ['./game.component.scss']
 })
 export class GameComponent {
+  Math: any;
+  constructor() {
+    this.Math = Math;
+  }
   title = 'game';
 
   public rotationX = 0.0;
@@ -13,4 +17,18 @@ export class GameComponent {
   public rotationZ = 0.0;
 
   public translationY = 0.0;
+
+  private gameState = [
+    '','','',
+    '','','',
+    '','','',
+
+    '','','',
+    '','','',
+    '','','',
+
+    '','','',
+    '','','',
+    '','','',
+  ]
 }

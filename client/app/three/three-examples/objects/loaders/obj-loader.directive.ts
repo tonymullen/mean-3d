@@ -1,4 +1,5 @@
 import { Directive, forwardRef, Input } from '@angular/core';
+
 import * as THREE from 'three';
 import { AbstractObject3D } from '../abstract-object-3d';
 import { AbstractModelLoader } from './abstract-model-loader';

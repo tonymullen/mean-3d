@@ -46,7 +46,7 @@ export class OrbitControlsDirective implements AfterViewInit, OnChanges, OnDestr
   private controls: THREE.OrbitControls;
 
   constructor() {
-    console.log('OrbitControlsDirective.constructor');
+    // console.log('OrbitControlsDirective.constructor');
   }
 
   ngOnChanges(changes: SimpleChanges) {
@@ -87,7 +87,7 @@ export class OrbitControlsDirective implements AfterViewInit, OnChanges, OnDestr
   }
 
   ngAfterViewInit(): void {
-    console.log('OrbitControlsDirective.ngAfterViewInit');
+    // console.log('OrbitControlsDirective.ngAfterViewInit');
     if (this.childCameras === undefined || this.childCameras.first === undefined) {
       throw new Error('Camera is not found');
     }

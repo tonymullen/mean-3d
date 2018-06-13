@@ -32,12 +32,12 @@ export class WebGLRendererComponent implements AfterViewInit {
   @ContentChildren(AbstractCamera) cameraComponents: QueryList<AbstractCamera<THREE.Camera>>; // TODO: Multiple cameras
 
   constructor() {
-    console.log('RendererComponent.constructor');
+    // console.log('RendererComponent.constructor');
     this.render = this.render.bind(this);
   }
 
   ngAfterViewInit() {
-    console.log('RendererComponent.ngAfterViewInit');
+    // console.log('RendererComponent.ngAfterViewInit');
     this.viewInitialized = true;
     this.startRendering();
   }
@@ -67,7 +67,7 @@ export class WebGLRendererComponent implements AfterViewInit {
   }
 
   private startRendering() {
-    console.log('RendererComponent.startRendering');
+    // console.log('RendererComponent.startRendering');
     this.renderer = new THREE.WebGLRenderer({
       canvas: this.canvas,
       antialias: true
@@ -110,7 +110,7 @@ export class WebGLRendererComponent implements AfterViewInit {
   public onResize(event: Event) {
     this.canvas.style.width = '100%';
     this.canvas.style.height = '100%';
-    console.log('RendererComponent.onResize: ' + this.canvas.clientWidth + ', ' + this.canvas.clientHeight);
+    // console.log('RendererComponent.onResize: ' + this.canvas.clientWidth + ', ' + this.canvas.clientHeight);
 
     this.updateChildCamerasAspectRatio();
 

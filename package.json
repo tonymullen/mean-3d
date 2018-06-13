@@ -6,8 +6,8 @@
   "description": "MEAN stack boilerplate with authentication, 3D, and socket interaction.",
   "angular-cli": {},
   "engines": {
-    "node": "6.11.4",
-    "npm": "3.10.10"
+    "node": ">=6.11.4",
+    "npm": ">=3.10.10"
   },
   "scripts": {
     "ng": "ng",
@@ -54,7 +54,7 @@
     "zone.js": "^0.8.18"
   },
   "devDependencies": {
-    "@angular/cli": "1.5.4",
+    "@angular/cli": "^1.5.4",
     "@angular/compiler-cli": "^5.0.3",
     "@angular/language-service": "^5.0.3",
     "@types/express": "^4.0.37",

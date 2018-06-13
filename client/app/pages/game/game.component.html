@@ -9,6 +9,7 @@
   Instead one has to click multiple times and trigger mouse move events for the updates
   to take place.
 -->
+<!--
 X rotation: <input type="range" min="-3.141" max="3.141" step="0.1" [(ngModel)]="rotationX">
 {{ rotationX | rad2deg | number:'1.1-2'}} °<br>
 
@@ -20,26 +21,94 @@ Z rotation: <input type="range" min="-3.141" max="3.141" step="0.1" [(ngModel)]=
 {{ rotationZ | rad2deg | number:'1.1-2'}} °<br>
 
 Y translation: <input type="range" min="-50" max="50" step="1" [(ngModel)]="translationY"> {{ translationY }}
-
-<hr>
-
+-->
 <three-orbit-controls [rotateSpeed]=1 [zoomSpeed]=1.2 [listeningControlElement]=mainRenderer.renderPane>
   <three-webgl-renderer #mainRenderer>
 
-    <three-perspective-camera [fov]=60 [near]=1 [far]=1100 positionX=20 positionY=50 positionZ=50></three-perspective-camera>
+    <three-perspective-camera [fov]=60 [near]=1 [far]=1100 positionX=10 positionY=15 positionZ=15></three-perspective-camera>
 
     <three-scene>
-
+<!--
       <three-axes-helper size=200></three-axes-helper>
       <three-grid-helper size=100 divisions=10></three-grid-helper>
-
+-->
       <three-point-light color="white" intensity="1" distance="1000" translateX=50 translateY=50 translateZ=50></three-point-light>
       <three-point-light color="#FAFAF0" intensity="1" distance="1000" translateX=-50 translateY=50 translateZ=20></three-point-light>
 
+      <three-o-mesh translateZ=-2 rotateY=0.5></three-o-mesh>
+      <three-x-mesh translateZ=2 rotateY=-0.25></three-x-mesh>
 
+      <!--
+      <three-extrude-mesh
+        [(ngModel)]="shapeDataString"
+
+        extrudeSettingString='{
+          "amount" : 1,
+          "depth" : 1,
+          "curveSegments" : 12,
+          "bevelEnabled" : true,
+          "bevelSegments" : 5,
+          "steps" : 3,
+          "bevelSize" : 0.5,
+          "bevelThickness" : 0.5       
+        }'></three-extrude-mesh>
+      -->
+      <!--
+      <three-extrude-mesh 
+        shapeDataString='{
+           "path": [
+                    { 
+                        "funct" : "moveTo",
+                        "args" : [0, 0]
+                    },
+                    { 
+                        "funct" : "absarc",
+                        "args" : [0, 0, 8, 0, 6.283185307179586, false]
+                    }
+                ],
+            "holes": [{
+                "path" :[
+                    { 
+                        "funct" : "moveTo",
+                        "args" : [0, 0]
+                    }, 
+                    { 
+                        "funct" : "absarc",
+                        "args" : [0, 0, 6, 0, 6.283185307179586, true]
+                    }
+                ]
+            }]
+        }' 
+        extrudeSettingString='{
+          "amount" : 1,
+          "depth" : 1,
+          "curveSegments" : 12,
+          "bevelEnabled" : true,
+          "bevelSegments" : 5,
+          "steps" : 3,
+          "bevelSize" : 0.5,
+          "bevelThickness" : 0.5       
+        }'
+        translateX=5>
+      </three-extrude-mesh>
+    -->
+      <div>
+          <three-cell-mesh *ngFor="let z of [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 26, 26]"  model="assets/model/Server.json"
+            [translateX]="((z % 3) * 5) - 5"
+            [translateZ]="(Math.floor((z % 9)/3) * 5) - ((Math.floor((27 % 9)/3) * 5)/2) - 5"
+            [translateY]="(Math.floor(z/9) * 5) - 5"
+            x-len=4.5
+            y-len=4.5
+            z-len=4.5
+            [renderer]="mainRenderer">
+          </three-cell-mesh>
+        </div>
+
+<!--
       <three-collada-loader model="assets/model/tableAndChair.dae" rotateY={{-70|deg2rad}} translateX=-20 [renderer]="mainRenderer" scaleZ=5>
         <three-axes-helper size=10></three-axes-helper>
       </three-collada-loader>
+
 
       <three-obj-loader
         model="assets/model/smiley/smiley.obj"
@@ -48,17 +117,8 @@ Y translation: <input type="range" min="-50" max="50" step="1" [(ngModel)]="tran
         rotateX={{-90|deg2rad}}>
       </three-obj-loader>
 
-    <div *ngFor="let z of [-10, -5, 0, 5, 10]">
-        <three-object-loader *ngFor="let x of [0,5,10,15,20]" model="assets/model/Server.json" [translateX]="x" [translateZ]="z"
-          [renderer]="mainRenderer"
-          [rotateX]="rotationX"
-          [rotateY]="rotationY"
-          [rotateZ]="rotationZ"
-          [translateY]="translationY"
-          >
-        </three-object-loader>
-      </div>
 
+    -->
     </three-scene>
   </three-webgl-renderer>
 </three-orbit-controls>

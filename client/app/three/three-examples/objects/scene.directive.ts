@@ -9,17 +9,30 @@ import { AbstractObject3D } from './abstract-object-3d';
 export class SceneDirective extends AbstractObject3D<THREE.Scene> {
 
   constructor() {
-    console.log('SceneDirective.constructor');
+    // console.log('SceneDirective.constructor');
     super();
   }
 
   protected afterInit(): void {
-    console.log('SceneDirective.afterInit');
+    // console.log('SceneDirective.afterInit');
   }
 
   protected newObject3DInstance(): THREE.Scene {
-    console.log('SceneDirective.newObject3DInstance');
-    return new THREE.Scene();
+    // console.log('SceneDirective.newObject3DInstance');
+
+    var scene = new THREE.Scene();
+    scene.background = new THREE.CubeTextureLoader()
+      .setPath( 'assets/images/uffizi/' )
+      .load( [
+        'x-pos.jpg',
+        'x-neg.jpg',
+        'z-pos.jpg',
+        'z-neg.jpg',
+        'y-pos.jpg',
+        'y-neg.jpg'
+      ] );
+
+    return scene;
   }
 
 }
